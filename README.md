@@ -1,17 +1,26 @@
-﻿# Emotion Detector
+﻿# Final Project
 
-An emotion detection application using the IBM Watson NLP EmotionPredict
-service, Python, and Flask.
+Repository for the final project of the IBM Skills Network Emotion Detector course.
+
+This project uses Python and Flask to analyze text and identify five emotions: anger, disgust, fear, joy, and sadness.
 
 ## Features
-- Detects anger, disgust, fear, joy, and sadness.
-- Identifies the dominant emotion.
-- Provides a Flask web interface and JSON endpoint.
-- Handles blank and invalid input.
-- Includes unit tests.
+- Emotion detection using the Watson NLP service.
+- Identification of the dominant emotion.
+- Flask web application.
+- Unit tests for emotion detection.
 
-## Run
-Install dependencies with `python -m pip install requests flask pylint`.
-Run the tests with `python -m unittest test_emotion_detection.py`.
-Start the web application with `python server.py`.
-Open http://127.0.0.1:5000 in a browser.
+## Run the application
+Install the required packages:
+
+```bash
+python -m pip install requests flask
+```
+
+Run the application:
+
+```bash
+python server.py
+```
+
+Open `http://127.0.0.1:5000` in your browser.
