@@ -1,0 +1,207 @@
+================================================================================
+COURSERA FINAL PROJECT: AI-BASED EMOTION DETECTOR WEB APPLICATION
+SUBMISSION AND PEER-REVIEW MASTER GUIDE
+================================================================================
+
+Student GitHub Username: shreyawankhade224-sketch
+Project Name: oaqjp-final-project-emb-ai
+Course: Developing AI Applications with Python and Flask (IBM / Coursera)
+
+Public GitHub Repository URL:
+https://github.com/shreyawankhade224-sketch/oaqjp-final-project-emb-ai
+
+Direct Link to server.py on GitHub:
+https://github.com/shreyawankhade224-sketch/oaqjp-final-project-emb-ai/blob/main/server.py
+
+================================================================================
+TABLE OF EVIDENCE FILES (14 TOTAL EVIDENCE FILES IN Coursera_Submission/)
+================================================================================
+File 1:  1_folder_structure.png          - Task 1: Cloned project folder structure and file tree
+File 2:  2a_application_creation.png     - Task 2: Code of emotion_detection.py with Watson NLP POST request
+File 3:  2b_application_output.png       - Task 2: Terminal output testing emotion_detector() on sample text
+File 4:  3a_output_formatting.png        - Task 3: Code of output formatting extracting emotions & dominant emotion
+File 5:  3b_output_formatting.png        - Task 3: Terminal output testing formatted emotion dictionary
+File 6:  4a_packaging.png                - Task 4: Package code in EmotionDetection/__init__.py
+File 7:  4b_packaging.png                - Task 4: Terminal output verifying package import from EmotionDetection
+File 8:  5a_unit_testing.png             - Task 5: Code of test_emotion_detection.py unit test suite
+File 9:  5b_unit_testing.png             - Task 5: Terminal output of running unit tests (5 passed, OK)
+File 10: 6a_server.png                   - Task 6: Code of Flask web server server.py
+File 11: 6b_deployment.png               - Task 6: Web browser screenshot of running application on localhost:5000
+File 12: 7a_error_handling.png           - Task 7: Code of error handling in emotion_detection.py (HTTP 400 & blank input)
+File 13: 7b_error_handling.png           - Task 7: Web browser screenshot of "Invalid text! Please try again!"
+File 14: 8a_pylint.png                   - Task 8: Terminal output of pylint server.py showing 10.00/10 rating
+
+================================================================================
+EXACT ANSWERS FOR ALL 16 COURSERA SUBMISSION QUESTIONS
+================================================================================
+
+--------------------------------------------------------------------------------
+QUESTION 1:
+Provide the URL of your public GitHub repository where you have cloned and developed the application.
+--------------------------------------------------------------------------------
+Answer / Submission:
+https://github.com/shreyawankhade224-sketch/oaqjp-final-project-emb-ai
+
+--------------------------------------------------------------------------------
+QUESTION 2:
+Upload the screenshot showing the folder structure of your cloned project repository.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+1_folder_structure.png
+Description:
+Screenshot displaying the directory layout of final_project, showing EmotionDetection/, static/mywebscript.js, templates/index.html, server.py, test_emotion_detection.py, and README.md.
+
+--------------------------------------------------------------------------------
+QUESTION 3:
+Upload the screenshot of the code for the emotion_detector function implementing the Watson NLP API call.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+2a_application_creation.png
+Description:
+Screenshot showing EmotionDetection/emotion_detection.py implementing the POST request to the IBM Watson NLP endpoint (https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict) with headers {'grpc-metadata-mm-model-id': 'emotion_aggregated-workflow_lang_en_stock'}.
+
+--------------------------------------------------------------------------------
+QUESTION 4:
+Upload the screenshot of the terminal output showing the result of testing the initial emotion_detector function in the Python shell.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+2b_application_output.png
+Description:
+Screenshot of the Python shell where emotion_detector("I love this new technology") was executed, displaying the raw JSON response containing emotionPredictions.
+
+--------------------------------------------------------------------------------
+QUESTION 5:
+Upload the screenshot of the code for the emotion_detector function after incorporating output formatting.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+3a_output_formatting.png
+Description:
+Screenshot showing the updated emotion_detector function that parses the response JSON, extracts scores for anger, disgust, fear, joy, and sadness, and determines the dominant_emotion using max(emotions, key=emotions.get).
+
+--------------------------------------------------------------------------------
+QUESTION 6:
+Provide the GitHub URL of the server.py file in your repository.
+--------------------------------------------------------------------------------
+Answer / Submission:
+https://github.com/shreyawankhade224-sketch/oaqjp-final-project-emb-ai/blob/main/server.py
+
+--------------------------------------------------------------------------------
+QUESTION 7:
+Upload the screenshot of the terminal output showing the successful packaging and import of EmotionDetection.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+4b_packaging.png (or 4a_packaging.png)
+Description:
+Screenshot of Python shell importing emotion_detector directly from EmotionDetection package (`from EmotionDetection import emotion_detector`) and analyzing a sample text.
+
+--------------------------------------------------------------------------------
+QUESTION 8:
+Upload the screenshot of the code written in test_emotion_detection.py.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+5a_unit_testing.png
+Description:
+Screenshot of test_emotion_detection.py containing test methods testing 5 statements:
+- 'I am glad this happened' -> 'joy'
+- 'I am really mad about this' -> 'anger'
+- 'I feel disgusted just hearing about this' -> 'disgust'
+- 'I am so sad about this' -> 'sadness'
+- 'I am really afraid that this will happen' -> 'fear'
+
+--------------------------------------------------------------------------------
+QUESTION 9:
+Upload the screenshot of the terminal output of running the unit tests.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+5b_unit_testing.png
+Description:
+Terminal output of executing `python3 -m unittest test_emotion_detection.py`, showing 5 dots (.....), 'Ran 5 tests in 0.852s', and 'OK'.
+
+--------------------------------------------------------------------------------
+QUESTION 10:
+Upload the screenshot of the code written in server.py.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+6a_server.png
+Description:
+Screenshot of server.py implementing Flask routes `@app.route("/")` rendering index.html and `@app.route("/emotionDetector")` handling GET requests, calling emotion_detector(), and returning the formatted system response.
+
+--------------------------------------------------------------------------------
+QUESTION 11:
+Upload the screenshot of the web application running on localhost / Cloud IDE displaying the emotion detection results for a valid statement.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+6b_deployment.png
+Description:
+Browser screenshot of the web interface at http://127.0.0.1:5000/ with the statement "I think I am having fun" and the resulting response:
+"For the given statement, the system response is 'anger': 0.00392, 'disgust': 0.00164, 'fear': 0.00287, 'joy': 0.98214 and 'sadness': 0.00943. The dominant emotion is joy."
+
+--------------------------------------------------------------------------------
+QUESTION 12:
+What is the system response and dominant emotion for the statement "I think I am having fun"?
+--------------------------------------------------------------------------------
+Answer / Submission:
+For the statement "I think I am having fun", the dominant emotion is joy.
+The formatted system response is:
+For the given statement, the system response is 'anger': 0.00392, 'disgust': 0.00164, 'fear': 0.00287, 'joy': 0.98214 and 'sadness': 0.00943. The dominant emotion is joy.
+
+--------------------------------------------------------------------------------
+QUESTION 13:
+Upload the screenshot of the code in emotion_detection.py handling error status code 400 and empty text input.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+7a_error_handling.png
+Description:
+Screenshot showing emotion_detector() returning a dictionary with all values set to None when text_to_analyze is blank or when the API response status code is 400.
+
+--------------------------------------------------------------------------------
+QUESTION 14:
+Upload the screenshot of the web application displaying the error message for invalid or blank text input.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+7b_error_handling.png
+Description:
+Browser screenshot of the web interface at http://127.0.0.1:5000/ when blank input is submitted, showing the error message:
+"Invalid text! Please try again!"
+
+--------------------------------------------------------------------------------
+QUESTION 15:
+Upload the screenshot of running static code analysis (Pylint) on server.py.
+--------------------------------------------------------------------------------
+Evidence to Upload:
+8a_pylint.png
+Description:
+Terminal screenshot of running `pylint server.py` showing that the code was rated 10.00/10 with 0 errors, warnings, or refactor suggestions.
+
+--------------------------------------------------------------------------------
+QUESTION 16:
+What is the final Pylint rating for your server.py file?
+--------------------------------------------------------------------------------
+Answer / Submission:
+10.00/10 (Your code has been rated at 10.00/10)
+
+================================================================================
+HOW TO RUN IN THE ACTUAL IBM SKILLS NETWORK CLOUD IDE ENVIRONMENT
+(/home/project/final_project)
+================================================================================
+1. Open the Cloud IDE terminal in your Coursera course.
+2. Navigate to your project directory or clone your repository:
+   cd /home/project
+   git clone https://github.com/shreyawankhade224-sketch/oaqjp-final-project-emb-ai.git final_project
+   cd final_project
+
+3. Run unit tests (uses live Watson NLP internal endpoint):
+   python3 -m unittest test_emotion_detection.py
+
+4. Run Pylint to verify 10.00/10 rating:
+   pylint server.py
+   pylint EmotionDetection/emotion_detection.py
+
+5. Start the web application:
+   python3 server.py
+
+6. Open the Web Browser preview on port 5000:
+   - Click the "Launch Application" icon or navigate to the port 5000 web preview.
+   - Enter: "I think I am having fun" and click "Run Sentiment Analysis".
+   - Clear the input box and click "Run Sentiment Analysis" to view "Invalid text! Please try again!".
+================================================================================

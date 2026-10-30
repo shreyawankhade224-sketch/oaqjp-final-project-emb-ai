@@ -1,3 +1,4 @@
-﻿"""Expose the emotion detector as a package function."""
+"""Package for Emotion Detection."""
+# pylint: disable=invalid-name
 
 from .emotion_detection import emotion_detector
